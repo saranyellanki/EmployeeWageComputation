@@ -28,7 +28,7 @@ public class CalculateWagePerMonth {
                 empWage = empHrs * WAGE_PER_HOUR;
                 totalEmpWage += empWage;
                 employeeWorkingHrs += empHrs;
-                System.out.println("Number of Days : " + day + " & oursNumber of Working h :" + employeeWorkingHrs);
+                System.out.println("Number of Days : " + day + " & Number of Working hours :" + employeeWorkingHrs);
                 System.out.println("Employee Wage : " + empWage);
             }
             System.out.println("Total Wage : " + totalEmpWage);
