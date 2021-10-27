@@ -3,16 +3,15 @@ package com.bridgelabz.uc7;
 import java.util.Scanner;
 
 public class EmployeeWage {
-    int fullTime;
-    int partTime;
+    final int FULL_TIME = 1;
+    final int PART_TIME = 2;
     int wagePerHour;
     int workingDaysInMonth;
     int maxHoursInMonth;
-    public void setFullTime(int fullTime){
-        this.fullTime = fullTime;
-    }
-    public void setPartTime(int partTime){
-        this.partTime = partTime;
+    String companyName;
+
+    public void setCompanyName(String companyName){
+        this.companyName = companyName;
     }
     public void setWagePerHour(int wagePerHour){
         this.wagePerHour = wagePerHour;
@@ -25,15 +24,13 @@ public class EmployeeWage {
     }
     public void setValues(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter full time hours : "+fullTime);
-        setFullTime(sc.nextInt());
-        System.out.println("Enter part time hours : "+partTime);
-        setPartTime(sc.nextInt());
-        System.out.println("Enter wage per hour : "+wagePerHour);
+        System.out.println("Enter Company Name : ");
+        setCompanyName(sc.nextLine());
+        System.out.println("Enter wage per hour : ");
         setWagePerHour(sc.nextInt());
-        System.out.println("Enter working days in a month : "+workingDaysInMonth);
+        System.out.println("Enter working days in a month : ");
         setWorkingDaysInMonth(sc.nextInt());
-        System.out.println("Enter maximum hours in a month : "+maxHoursInMonth);
+        System.out.println("Enter maximum hours in a month : ");
         setMaxHoursInMonth(sc.nextInt());
     }
     public void computeEmployeeWage(){
@@ -44,9 +41,9 @@ public class EmployeeWage {
 
         for ( int day = 0; day < workingDaysInMonth && employeeWorkingHrs < maxHoursInMonth; day++) {
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-            if (empCheck == fullTime)
+            if (empCheck == FULL_TIME)
                 empHrs = 8;
-            else if (empCheck == partTime)
+            else if (empCheck == PART_TIME)
                 empHrs = 4;
             else
                 empHrs = 0;
@@ -57,7 +54,7 @@ public class EmployeeWage {
             System.out.println("Number of Days : " + day + " & Number of Working hours :" + employeeWorkingHrs);
             System.out.println("Employee Wage : " + empWage);
         }
-        System.out.println("Total Wage : " + totalEmpWage);
+        System.out.println("Total Wage of Employee in "+companyName+" is : " + totalEmpWage);
     }
     public static void main(String[] args){
         EmployeeWage employeeWageObj = new EmployeeWage();
