@@ -10,20 +10,25 @@ public class EmployeeWage {
     int workingDaysInMonth;
     int maxHoursInMonth;
     String companyName;
+    int companyTotalWage;
 
-    public void setCompanyName(String companyName){
+    public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
-    public void setWagePerHour(int wagePerHour){
+
+    public void setWagePerHour(int wagePerHour) {
         this.wagePerHour = wagePerHour;
     }
-    public void setWorkingDaysInMonth(int workingDaysInMonth){
+
+    public void setWorkingDaysInMonth(int workingDaysInMonth) {
         this.workingDaysInMonth = workingDaysInMonth;
     }
-    public void setMaxHoursInMonth(int maxHoursInMonth){
+
+    public void setMaxHoursInMonth(int maxHoursInMonth) {
         this.maxHoursInMonth = maxHoursInMonth;
     }
-    public void setValues(){
+
+    public void setValues() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Company Name : ");
         setCompanyName(sc.nextLine());
@@ -34,6 +39,7 @@ public class EmployeeWage {
         System.out.println("Enter maximum hours in a month : ");
         setMaxHoursInMonth(sc.nextInt());
     }
+  
     public void computeEmployeeWage(){
         int empHrs = 0;
         int empWage = 0;
@@ -41,7 +47,14 @@ public class EmployeeWage {
         int employeeWorkingHrs = 0;
 
 
-        for ( int day = 0; day < workingDaysInMonth && employeeWorkingHrs < maxHoursInMonth; day++) {
+    public int computeEmployeeWage() {
+        int empHrs = 0;
+        int empWage = 0;
+        int totalEmpWage = 0;
+        int employeeWorkingHrs = 0;
+
+
+        for (int day = 0; day < workingDaysInMonth && employeeWorkingHrs < maxHoursInMonth; day++) {
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
             if (empCheck == FULL_TIME)
                 empHrs = 8;
@@ -56,8 +69,26 @@ public class EmployeeWage {
             System.out.println("Number of Days : " + day + " & Number of Working hours :" + employeeWorkingHrs);
             System.out.println("Employee Wage : " + empWage);
         }
-        System.out.println("Total Wage of Employee in "+companyName+" is : " + totalEmpWage);
+        System.out.println("Total Wage of Employee in " + companyName + " is : " + totalEmpWage);
+        return totalEmpWage;
     }
+
+    public void empWageBuilder() {
+        EmployeeWage company1 = new EmployeeWage();
+        company1.setValues();
+        company1.computeEmployeeWage();
+        companyName = company1.companyName;
+        companyTotalWage = company1.computeEmployeeWage();
+        System.out.println("Total Wage of " + companyName + " is : " + companyTotalWage);
+        EmployeeWage company2 = new EmployeeWage();
+        company2.setValues();
+        company2.computeEmployeeWage();
+        companyName = company2.companyName;
+        companyTotalWage = company2.computeEmployeeWage();
+        System.out.println("Total Wage of " + companyName + " is : " + companyTotalWage);
+    }
+
+    public static void main(String[] args) {
     public void empWageBuilder(){
         EmployeeWage company1 = new EmployeeWage();
         company1.setValues();
