@@ -43,13 +43,11 @@ public class EmployeeWage implements EmpWageBuilder {
         System.out.println("Enter maximum hours in a month : ");
         setMaxHoursInMonth(sc.nextInt());
     }
-
     public int computeEmployeeWage() {
         int empHrs = 0;
         int empWage = 0;
         int totalEmpWage = 0;
         int employeeWorkingHrs = 0;
-
 
         for (int day = 0; day < workingDaysInMonth && employeeWorkingHrs < maxHoursInMonth; day++) {
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
@@ -69,7 +67,6 @@ public class EmployeeWage implements EmpWageBuilder {
         System.out.println("Total Wage of Employee in " + companyName + " is : " + totalEmpWage);
         return totalEmpWage;
     }
-
     public void empWageBuilder() {
         ArrayList<Object> empWageArray = new ArrayList<>();
         EmployeeWage company1 = new EmployeeWage();
@@ -87,7 +84,6 @@ public class EmployeeWage implements EmpWageBuilder {
         empWageArray.add(company1);
         empWageArray.add(company2);
     }
-
     public static void main(String[] args) {
         EmpWageBuilder empWageObj = new EmployeeWage();
         empWageObj.empWageBuilder();
