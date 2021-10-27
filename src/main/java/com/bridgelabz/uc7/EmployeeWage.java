@@ -33,11 +33,7 @@ public class EmployeeWage {
         System.out.println("Enter maximum hours in a month : ");
         setMaxHoursInMonth(sc.nextInt());
     }
-    public void computeEmployeeWage(){
-        int empHrs = 0;
-        int empWage = 0;
-        int totalEmpWage = 0;
-        int employeeWorkingHrs = 0;
+    public void computeEmployeeWage(int empHrs, int empWage, int totalEmpWage, int employeeWorkingHrs){
 
         for ( int day = 0; day < workingDaysInMonth && employeeWorkingHrs < maxHoursInMonth; day++) {
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
@@ -59,6 +55,6 @@ public class EmployeeWage {
     public static void main(String[] args){
         EmployeeWage employeeWageObj = new EmployeeWage();
         employeeWageObj.setValues();
-        employeeWageObj.computeEmployeeWage();
+        employeeWageObj.computeEmployeeWage(0,0,0,0);
     }
 }
