@@ -66,6 +66,7 @@ public class EmployeeWage {
     }
 
     public void empWageBuilder() {
+        EmployeeWage[] objCompanyWage = new EmployeeWage[2];
         EmployeeWage company1 = new EmployeeWage();
         company1.setValues();
         company1.computeEmployeeWage();
@@ -78,6 +79,8 @@ public class EmployeeWage {
         companyName = company2.companyName;
         companyTotalWage = company2.computeEmployeeWage();
         System.out.println("Total Wage of " + companyName + " is : " + companyTotalWage);
+        objCompanyWage[0]=company1;
+        objCompanyWage[1]=company2;
     }
 
     public static void main(String[] args) {
