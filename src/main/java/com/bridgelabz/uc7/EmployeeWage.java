@@ -1,5 +1,6 @@
 package com.bridgelabz.uc7;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 interface EmpWageBuilder{
@@ -70,7 +71,7 @@ public class EmployeeWage implements EmpWageBuilder {
     }
 
     public void empWageBuilder() {
-        EmployeeWage[] objCompanyWage = new EmployeeWage[2];
+        ArrayList<Object> empWageArray = new ArrayList<>();
         EmployeeWage company1 = new EmployeeWage();
         company1.setValues();
         company1.computeEmployeeWage();
@@ -83,8 +84,8 @@ public class EmployeeWage implements EmpWageBuilder {
         companyName = company2.companyName;
         companyTotalWage = company2.computeEmployeeWage();
         System.out.println("Total Wage of " + companyName + " is : " + companyTotalWage);
-        objCompanyWage[0]=company1;
-        objCompanyWage[1]=company2;
+        empWageArray.add(company1);
+        empWageArray.add(company2);
     }
 
     public static void main(String[] args) {
