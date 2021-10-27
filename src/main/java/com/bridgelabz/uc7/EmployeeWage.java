@@ -1,5 +1,6 @@
 package com.bridgelabz.uc7;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class EmployeeWage {
@@ -38,6 +39,13 @@ public class EmployeeWage {
         System.out.println("Enter maximum hours in a month : ");
         setMaxHoursInMonth(sc.nextInt());
     }
+  
+    public void computeEmployeeWage(){
+        int empHrs = 0;
+        int empWage = 0;
+        int totalEmpWage = 0;
+        int employeeWorkingHrs = 0;
+
 
     public int computeEmployeeWage() {
         int empHrs = 0;
@@ -81,6 +89,15 @@ public class EmployeeWage {
     }
 
     public static void main(String[] args) {
+    public void empWageBuilder(){
+        EmployeeWage company1 = new EmployeeWage();
+        company1.setValues();
+        company1.computeEmployeeWage();
+        EmployeeWage company2 = new EmployeeWage();
+        company2.setValues();
+        company2.computeEmployeeWage();
+    }
+    public static void main(String[] args){
         EmployeeWage employeeWageObj = new EmployeeWage();
         employeeWageObj.empWageBuilder();
     }
