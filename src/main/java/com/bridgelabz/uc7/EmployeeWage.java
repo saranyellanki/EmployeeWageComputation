@@ -2,7 +2,11 @@ package com.bridgelabz.uc7;
 
 import java.util.Scanner;
 
-public class EmployeeWage {
+interface EmpWageBuilder{
+    void empWageBuilder();
+}
+
+public class EmployeeWage implements EmpWageBuilder {
     final int FULL_TIME = 1;
     final int PART_TIME = 2;
     int wagePerHour;
@@ -84,7 +88,7 @@ public class EmployeeWage {
     }
 
     public static void main(String[] args) {
-        EmployeeWage employeeWageObj = new EmployeeWage();
-        employeeWageObj.empWageBuilder();
+        EmpWageBuilder empWageObj = new EmployeeWage();
+        empWageObj.empWageBuilder();
     }
 }
