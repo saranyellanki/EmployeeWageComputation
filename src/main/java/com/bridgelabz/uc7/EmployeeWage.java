@@ -14,7 +14,6 @@ public class EmployeeWage implements EmpWageBuilder {
     int workingDaysInMonth;
     int maxHoursInMonth;
     String companyName;
-    int companyTotalWage;
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -43,7 +42,7 @@ public class EmployeeWage implements EmpWageBuilder {
         System.out.println("Enter maximum hours in a month : ");
         setMaxHoursInMonth(sc.nextInt());
     }
-    public int computeEmployeeWage() {
+    public void computeEmployeeWage() {
         int empHrs = 0;
         int empWage = 0;
         int totalEmpWage = 0;
@@ -65,22 +64,24 @@ public class EmployeeWage implements EmpWageBuilder {
             System.out.println("Employee Wage : " + empWage);
         }
         System.out.println("Total Wage of Employee in " + companyName + " is : " + totalEmpWage);
-        return totalEmpWage;
     }
     public void empWageBuilder() {
         ArrayList<Object> empWageArray = new ArrayList<>();
         EmployeeWage company1 = new EmployeeWage();
-        company1.setValues();
-        company1.computeEmployeeWage();
-        companyName = company1.companyName;
-        companyTotalWage = company1.computeEmployeeWage();
-        System.out.println("Total Wage of " + companyName + " is : " + companyTotalWage);
         EmployeeWage company2 = new EmployeeWage();
+        company1.setValues();
+        String nameOfCompany1 = company1.companyName;
         company2.setValues();
-        company2.computeEmployeeWage();
-        companyName = company2.companyName;
-        companyTotalWage = company2.computeEmployeeWage();
-        System.out.println("Total Wage of " + companyName + " is : " + companyTotalWage);
+        String nameOfCompany2 = company2.companyName;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter company name to fetch total wage : ");
+        String nameCompany = sc.nextLine();
+        if(nameOfCompany1.equalsIgnoreCase(nameCompany)){
+            company1.computeEmployeeWage();
+        }
+        else if(nameOfCompany2.equalsIgnoreCase(nameCompany)){
+            company2.computeEmployeeWage();
+        }
         empWageArray.add(company1);
         empWageArray.add(company2);
     }
